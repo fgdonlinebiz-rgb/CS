@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Final Thesign Studio Flow",
+  "description": "A node-based image generation and editing platform powered by Gemini, allowing users to chain prompts and images for complex creative workflows.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
