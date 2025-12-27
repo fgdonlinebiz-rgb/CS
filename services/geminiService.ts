@@ -5,7 +5,7 @@ import { AnimationScene } from "../types";
 export class GeminiService {
   private static getAI() {
     // Mencipta instans baharu setiap kali untuk memastikan API Key yang dipilih (via openSelectKey) digunakan.
-    return new GoogleGenAI({ apiKey: process.env.API_KEY });
+    return new GoogleGenAI({ apiKey: process.env.API_KEY || 'FAKE_API_KEY_FOR_DEVELOPMENT' });
   }
 
   static async analyzeHero(base64Images: string[]): Promise<string> {
@@ -181,7 +181,7 @@ export class GeminiService {
     if (!downloadLink) throw new Error("Video generation failed.");
 
     // Gunakan kunci terkini semasa fetch juga
-    const videoResponse = await fetch(`${downloadLink}&key=${process.env.API_KEY}`);
+    const videoResponse = await fetch(`${downloadLink}&key=${process.env.API_KEY || 'FAKE_API_KEY_FOR_DEVELOPMENT'}`);
     const blob = await videoResponse.blob();
     return URL.createObjectURL(blob);
   }
